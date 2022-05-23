@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2022 at 04:53 PM
+-- Generation Time: May 23, 2022 at 04:01 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -163,6 +163,17 @@ CREATE TABLE `servico` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `servico`
+--
+
+INSERT INTO `servico` (`idServico`, `nomeServico`, `descricaoServico`, `valorServico`, `statusServico`, `dataCadServico`, `tempoExecServico`, `idEmpresa`) VALUES
+(1, 'Corte', 'Corte masculino/feminino de cabelo, com todo o charme e qualidade dourados!', '40.00', 'ATIVO', '2022-05-18', '00:45:00', 1),
+(2, 'Corte e Barba', 'Corte masculino de cabelo e de barba para ficar na régua!', '70.00', 'ATIVO', '2022-05-18', '01:15:00', 1),
+(3, 'Barba', 'Uma barba feitinha muda o homem! Feita com as melhores técnicas e toalha quente.', '30.00', 'ATIVO', '2022-05-18', '00:30:00', 1),
+(4, 'Progressiva', 'Progressiva com Salon Line para deixar o cabelo liso!', '60.00', 'ATIVO', '2022-05-18', '00:45:00', 1),
+(5, 'Relaxamento', 'Menos agressivo que a progressiva, deixa seu cabelo alisado e no estilo!', '40.00', 'ATIVO', '2022-05-18', '00:30:00', 1);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -276,7 +287,7 @@ ALTER TABLE `reserva`
 -- AUTO_INCREMENT for table `servico`
 --
 ALTER TABLE `servico`
-  MODIFY `idServico` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
