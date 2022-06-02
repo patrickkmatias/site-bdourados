@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2022 at 04:01 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Tempo de geração: 02-Jun-2022 às 16:07
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bdouradosdb`
+-- Banco de dados: `bdouradosdb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cliente`
+-- Estrutura da tabela `cliente`
 --
 
 CREATE TABLE `cliente` (
@@ -40,7 +40,7 @@ CREATE TABLE `cliente` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contato`
+-- Estrutura da tabela `contato`
 --
 
 CREATE TABLE `contato` (
@@ -54,7 +54,7 @@ CREATE TABLE `contato` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `empresa`
+-- Estrutura da tabela `empresa`
 --
 
 CREATE TABLE `empresa` (
@@ -71,7 +71,7 @@ CREATE TABLE `empresa` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fonecliente`
+-- Estrutura da tabela `fonecliente`
 --
 
 CREATE TABLE `fonecliente` (
@@ -85,7 +85,7 @@ CREATE TABLE `fonecliente` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foneempresa`
+-- Estrutura da tabela `foneempresa`
 --
 
 CREATE TABLE `foneempresa` (
@@ -99,7 +99,7 @@ CREATE TABLE `foneempresa` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fonefuncionario`
+-- Estrutura da tabela `fonefuncionario`
 --
 
 CREATE TABLE `fonefuncionario` (
@@ -113,7 +113,7 @@ CREATE TABLE `fonefuncionario` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `funcionario`
+-- Estrutura da tabela `funcionario`
 --
 
 CREATE TABLE `funcionario` (
@@ -128,10 +128,33 @@ CREATE TABLE `funcionario` (
   `idEmpresa` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `funcionario`
+--
+
+INSERT INTO `funcionario` (`idFuncionario`, `nomeFuncionario`, `emailFuncionario`, `senhaFuncionario`, `nivelFuncionario`, `statusFuncionario`, `dataCadFuncionario`, `fotoFuncionario`, `idEmpresa`) VALUES
+(1, 'ANDRÉ LUIZ', 'andreluizmuniz@gmail.com', '1234', 'BARBEIRO', 'ATIVO', '2022-06-02', 'portfolioAndre/img1', 1),
+(2, 'PAULO BARBOSA', 'barbosapaulo@gmail.com', '4321', 'BARBEIRO', 'ATIVO', '2022-06-02', 'portfolioPaulo/img1', 1),
+(3, 'JEFFERSON IRENO', 'jeffireno123@gmail.com', '4312', 'BARBEIRO', 'ATIVO', '2022-06-02', 'portfolioJefferson/img1', 1),
+(4, 'MARCELO \"BARBA\"', 'marceloaugustonogueira@gmail.com', '3421', 'BARBEIRO', 'ATIVO', '2022-06-02', 'portfolioMarcelo/img1', 1),
+(5, 'MAURO NOGUEIRA', 'mauronogue321@gmail.com', '2134', 'BARBEIRO', 'ATIVO', '2022-06-02', 'portfolioMauro/img1', 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reserva`
+-- Estrutura da tabela `portfolio`
+--
+
+CREATE TABLE `portfolio` (
+  `idPortfolio` int(11) NOT NULL,
+  `fotoPortfolio` varchar(100) NOT NULL,
+  `idFuncionario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `reserva`
 --
 
 CREATE TABLE `reserva` (
@@ -148,7 +171,7 @@ CREATE TABLE `reserva` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `servico`
+-- Estrutura da tabela `servico`
 --
 
 CREATE TABLE `servico` (
@@ -163,7 +186,7 @@ CREATE TABLE `servico` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `servico`
+-- Extraindo dados da tabela `servico`
 --
 
 INSERT INTO `servico` (`idServico`, `nomeServico`, `descricaoServico`, `valorServico`, `statusServico`, `dataCadServico`, `tempoExecServico`, `idEmpresa`) VALUES
@@ -174,117 +197,129 @@ INSERT INTO `servico` (`idServico`, `nomeServico`, `descricaoServico`, `valorSer
 (5, 'Relaxamento', 'Menos agressivo que a progressiva, deixa seu cabelo alisado e no estilo!', '40.00', 'ATIVO', '2022-05-18', '00:30:00', 1);
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `cliente`
+-- Índices para tabela `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`idCliente`);
 
 --
--- Indexes for table `contato`
+-- Índices para tabela `contato`
 --
 ALTER TABLE `contato`
   ADD PRIMARY KEY (`idContato`);
 
 --
--- Indexes for table `empresa`
+-- Índices para tabela `empresa`
 --
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`idEmpresa`);
 
 --
--- Indexes for table `fonecliente`
+-- Índices para tabela `fonecliente`
 --
 ALTER TABLE `fonecliente`
   ADD PRIMARY KEY (`idFoneCliente`);
 
 --
--- Indexes for table `foneempresa`
+-- Índices para tabela `foneempresa`
 --
 ALTER TABLE `foneempresa`
   ADD PRIMARY KEY (`idFoneEmpresa`);
 
 --
--- Indexes for table `fonefuncionario`
+-- Índices para tabela `fonefuncionario`
 --
 ALTER TABLE `fonefuncionario`
   ADD PRIMARY KEY (`idFoneFuncionario`);
 
 --
--- Indexes for table `funcionario`
+-- Índices para tabela `funcionario`
 --
 ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`idFuncionario`);
 
 --
--- Indexes for table `reserva`
+-- Índices para tabela `portfolio`
+--
+ALTER TABLE `portfolio`
+  ADD PRIMARY KEY (`idPortfolio`);
+
+--
+-- Índices para tabela `reserva`
 --
 ALTER TABLE `reserva`
   ADD PRIMARY KEY (`idReserva`);
 
 --
--- Indexes for table `servico`
+-- Índices para tabela `servico`
 --
 ALTER TABLE `servico`
   ADD PRIMARY KEY (`idServico`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `cliente`
+-- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
   MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `contato`
+-- AUTO_INCREMENT de tabela `contato`
 --
 ALTER TABLE `contato`
   MODIFY `idContato` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `empresa`
+-- AUTO_INCREMENT de tabela `empresa`
 --
 ALTER TABLE `empresa`
   MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `fonecliente`
+-- AUTO_INCREMENT de tabela `fonecliente`
 --
 ALTER TABLE `fonecliente`
   MODIFY `idFoneCliente` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `foneempresa`
+-- AUTO_INCREMENT de tabela `foneempresa`
 --
 ALTER TABLE `foneempresa`
   MODIFY `idFoneEmpresa` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `fonefuncionario`
+-- AUTO_INCREMENT de tabela `fonefuncionario`
 --
 ALTER TABLE `fonefuncionario`
   MODIFY `idFoneFuncionario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `funcionario`
+-- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `idFuncionario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idFuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `reserva`
+-- AUTO_INCREMENT de tabela `portfolio`
+--
+ALTER TABLE `portfolio`
+  MODIFY `idPortfolio` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `reserva`
 --
 ALTER TABLE `reserva`
   MODIFY `idReserva` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `servico`
+-- AUTO_INCREMENT de tabela `servico`
 --
 ALTER TABLE `servico`
   MODIFY `idServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
