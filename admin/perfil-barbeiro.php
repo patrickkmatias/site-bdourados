@@ -11,15 +11,37 @@ if(!$conexao){ // verifica a conexão
     echo "Não foi possível conectar-se com o banco de dados!";
 }
 
-if(isset($_GET['idBarbeiro'])) {
+if(isset($_GET['idFuncionario'])) {
 
-    $idBarbeiro = $_GET['idBarbeiro'];
+    $idFuncionario = $_GET['idFuncionario'];
 
-    $query = $conexao->prepare("SELECT * FROM `funcionario` WHERE nivelFuncionario = 'BARBEIRO'"); // prepara uma ação do sql e armazena em $query
+    $query = $conexao->prepare("
+    SELECT
+    funcionario.idFuncionario,
+    nomeFuncionario,
+    fotoFuncionario,
+    descFuncionario,
+    repFuncionario,
+    idAvaliacao,
+    textoAvaliacao,
+    repAvaliacao,
+    dataEnvioAvaliacao,
+    cliente.idCliente,
+    nomeCliente,
+    fotoCliente
+    FROM
+        funcionario
+    LEFT JOIN avaliacao ON avaliacao.idFuncionario = funcionario.idFuncionario
+    LEFT JOIN cliente ON avaliacao.idCliente = cliente.idCliente
+    WHERE
+        nivelFuncionario = 'BARBEIRO' && funcionario.idFuncionario = $idFuncionario
+    "); // prepara uma ação do sql e armazena em $query
 
     $query->execute();
 
-    $json = $query->fetch(PDO::FETCH_ASSOC);
+    $json = array();
+
+    $dados = $query->fetch(PDO::FETCH_ASSOC);
 
     array_push($json, $dados);
 

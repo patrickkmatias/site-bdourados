@@ -11,7 +11,19 @@ if(!$conexao){ // verifica a conexão
     echo "Não foi possível conectar-se com o banco de dados!";
 }
 
-$query = $conexao->prepare("SELECT idFuncionario, LOWER(nomeFuncionario) 'nomeFuncionario', repFuncionario  FROM funcionario WHERE nivelFuncionario = 'BARBEIRO';"); // prepara uma ação do sql e armazena em $query
+$query = $conexao->prepare("
+    SELECT
+        funcionario.idFuncionario,
+        nomeFuncionario,
+        fotoFuncionario,
+        descFuncionario,
+        repFuncionario,
+        GROUP_CONCAT(fotoPortfolio) 'fotosPortfolio'
+    FROM
+        funcionario
+    LEFT JOIN portfolio 
+    ON funcionario.idFuncionario = portfolio.idFuncionario
+"); // prepara uma ação do sql e armazena em $query
 
 $query->execute();
 
@@ -21,7 +33,21 @@ while ($r = $query->fetch(PDO::FETCH_ASSOC)) { // o $r é o nosso contador, cada
     array_push($json , $r);
 }
 
+// segunda query para buscar o banner
+
+$query2 = $conexao->prepare("SELECT * FROM banner_app")
+
+$query2->execute();
+
+$json2 = array();
+
+while ($r = $query2->fetch(PDO::FETCH_ASSOC)) {
+    array_push($json2, $r);
+}
+
 echo json_encode($json, JSON_UNESCAPED_UNICODE);
+
+echo json_encode($json2, JSON_UNESCAPED_UNICODE);
 /* até aqui, foi escrito na tela o que tem no banco */
 
 ?>
