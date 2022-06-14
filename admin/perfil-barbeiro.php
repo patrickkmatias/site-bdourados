@@ -17,22 +17,25 @@ if(isset($_GET['idFuncionario'])) {
 
     $query = $conexao->prepare("
     SELECT
-    funcionario.idFuncionario,
-    nomeFuncionario,
-    fotoFuncionario,
-    descFuncionario,
-    repFuncionario,
-    idAvaliacao,
-    textoAvaliacao,
-    repAvaliacao,
-    dataEnvioAvaliacao,
-    cliente.idCliente,
-    nomeCliente,
-    fotoCliente
+        funcionario.idFuncionario,
+        LOWER(nomeFuncionario) 'nomeFuncionario',
+        fotoFuncionario,
+        descFuncionario,
+        repFuncionario,
+        idAvaliacao,
+        textoAvaliacao,
+        repAvaliacao,
+        dataEnvioAvaliacao,
+        cliente.idCliente,
+        nomeCliente,
+        fotoCliente,
+        idPortfolio,
+        GROUP_CONCAT(fotoPortfolio) 'fotosPortfolio'
     FROM
         funcionario
     LEFT JOIN avaliacao ON avaliacao.idFuncionario = funcionario.idFuncionario
     LEFT JOIN cliente ON avaliacao.idCliente = cliente.idCliente
+    LEFT JOIN portfolio ON portfolio.idFuncionario = funcionario.idFuncionario
     WHERE
         nivelFuncionario = 'BARBEIRO' && funcionario.idFuncionario = $idFuncionario
     "); // prepara uma ação do sql e armazena em $query
