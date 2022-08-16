@@ -35,7 +35,7 @@ $senha = $_GET['senha'];
 if(is_numeric($email)) 
     $query = $conexao->prepare("
     SELECT
-        numeroFoneCliente, senhaCliente
+        numeroFoneCliente, senhaCliente, nomeCliente, emailCliente, statusCliente, dataCadCliente, fotoCliente
     FROM
         fonecliente
     JOIN cliente ON cliente.idCliente = fonecliente.idCliente
