@@ -14,7 +14,7 @@ if(!$conexao){
 $query = $conexao->prepare("
 SELECT
     funcionario.idFuncionario,
-    nomeFuncionario,
+    LOWER(nomeFuncionario) 'nomeFuncionario',
     fotoFuncionario,
     descFuncionario,
     repFuncionario,
