@@ -395,6 +395,7 @@ header{
 }
 #aBarbearia{
 
+    width: 100%;
     height: 720px;
     margin: 0 auto;
 
@@ -1323,6 +1324,7 @@ main
     }
     #app #playstore
     {
+        width: 250px;
         margin: 10% auto;
     }
     #appMockup
@@ -1336,9 +1338,64 @@ main
 
         top: 14%;
         left: 85%;  
+    }
+
+    #aBarbearia
+    {
+        height: 1620px
     }   
 
+    #aBarbearia article
+    {
+        max-width: 100%;
+        margin-right: 0;
+        margin-top: 100px;
+    }
+
+    #aBarbearia article div
+    {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0 0 30px 0;
+    }
+
+    #aBarbearia div p
+    {
+        height: 388px;
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    #aBarbearia a
+    {
+        position: relative;
+    }
+
+    #modeloBarbearia
+    {
+        left: initial;
+        top: initial;
+        right: 0;
+        bottom: 0;
+        width: 662px;
+        height: 760px;
+        background-size: initial;
+    }
+
+    #shadowModelo
+    {
+        display:block;
+        left: -520px;
+        top: 590px;
+    }
+
+    .responsiveBar{display:none !important;}
     /* celular serviço*/
+    #servicos
+    {
+        height: 550px;
+        margin-top: 50px;
+    }
     .slick-dots
     {
         left:0; 
