@@ -124,19 +124,7 @@ gsap.to('#navbar', {
   // overflow: "hidden",
 });
 
-gsap.to('#bolinhasApp', {
-  scrollTrigger: {
-    trigger: '#bolinhasApp',
-    toggleClass: 'active',
-    scrub: 2,
-    start: '20 bottom',
-    end: () => '+=' +
-    (document.querySelector('#bolinhasApp').offsetWidth * 0.8) + ' 70%',
-    markers: true,
-  },
-  x: -800,
-  duration: 4
-})
+
 
 gsap.to('.sombraGaleria', {
   scrollTrigger: {
@@ -323,9 +311,41 @@ ScrollTrigger.matchMedia({
         duration: 2.5, 
         ease: 'expo', 
         y: innerHeight * 1 })
+  },
+  "(min-width: 426px)": function() {
+    gsap.to('#bolinhasApp', {
+      scrollTrigger: {
+        trigger: '#bolinhasApp',
+        toggleClass: 'active',
+        scrub: 2,
+        start: '20 bottom',
+        end: () => '+=' +
+        (document.querySelector('#bolinhasApp').offsetWidth * 0.8) + ' 70%',
+        markers: true,
+      },
+      x: -800,
+      duration: 4
+    })
+  },
+  "(max-width: 425px)": function() {
+    
+    gsap.set('#bolinhasApp', {scaleX: "1", scaleY: "-1"})
+
+    gsap.to('#bolinhasApp', {
+      scrollTrigger: {
+        trigger: '#app',
+        toggleClass:  {targets:'#bolinhasApp', className: 'active'},
+        scrub: 2,
+        start: 'top center',
+        end: '80% center',
+        markers: false,
+      },
+      x: -150,
+      duration: 4
+    })
+
   }
 });
-
 
 
 

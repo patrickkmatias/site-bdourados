@@ -1329,8 +1329,12 @@ main
     {
         display: none;
     }
-    .bolinhas
+    #bolinhasApp
     {
-        transform: scale(.3);
+        width: 460px;
+        height: 330px;
+
+        top: 14%;
+        left: 85%;  
     }   
 }
