@@ -1337,4 +1337,18 @@ main
         top: 14%;
         left: 85%;  
     }   
+
+    /* celular serviço*/
+    .slick-dots
+    {
+        left:0; 
+        margin-bottom: 25px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .slick-dots li
+    {
+        width:40px;
+        height: 40px;
+    }
 }
