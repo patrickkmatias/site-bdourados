@@ -169,20 +169,6 @@ gsap.to('#parallaxGaleria', {
   y: 100
 })
 
-gsap.to('#bolinhasGaleria', {
-  scrollTrigger: {
-    trigger: '#bolinhasGaleria',
-    toggleClass: 'active',
-    scrub: 10,
-    start: '20 bottom',
-    end: () => '+=' +
-    document.querySelector('#bolinhasGaleria').offsetWidth + ' center',
-    markers: false,
-  },
-  x: 50,
-  duration: 4
-})
-
 gsap.timeline({
   scrollTrigger: {
     trigger: '.video',
@@ -321,9 +307,25 @@ ScrollTrigger.matchMedia({
         start: '20 bottom',
         end: () => '+=' +
         (document.querySelector('#bolinhasApp').offsetWidth * 0.8) + ' 70%',
-        markers: true,
+        markers: false,
       },
       x: -800,
+      duration: 4
+    })
+
+    gsap.set('#bolinhasGaleria', {scaleX: "1", scaleY: "-1"})
+
+    gsap.to('#bolinhasGaleria', {
+      scrollTrigger: {
+        trigger: '#bolinhasGaleria',
+        toggleClass: 'active',
+        scrub: 10,
+        start: '20 bottom',
+        end: () => '+=' +
+        document.querySelector('#bolinhasGaleria').offsetWidth + ' center',
+        markers: false,
+      },
+      x: 50,
       duration: 4
     })
   },
@@ -343,6 +345,23 @@ ScrollTrigger.matchMedia({
       x: -150,
       duration: 4
     })
+
+    gsap.set('#bolinhasGaleria', {scaleX: "-1", scaleY: "1"})
+
+    gsap.to('#bolinhasGaleria', {
+      scrollTrigger: {
+        trigger: '#bolinhasGaleria',
+        toggleClass: 'active',
+        scrub: 10,
+        start: '20 bottom',
+        end: () => '+=' +
+        document.querySelector('#bolinhasGaleria').offsetWidth + ' center',
+        markers: false,
+      },
+      x: 200,
+      duration: 4
+    })
+    
 
   }
 });

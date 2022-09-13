@@ -759,8 +759,6 @@ header{
     opacity: .9;
     
     background-size: 75%;
-    transform: scale(-1, 1);
-
 }
 
 #galeria .video{
@@ -1128,6 +1126,7 @@ main
 #app
 {
     width: 100%;
+    height: initial;
 }
 #app article>div
 {
@@ -1213,18 +1212,37 @@ main
 #degradeEsquerdo{top: 50%;left: 12% !important;}
 #degradeDireito{top: 50%;left: 86% !important;}
 
-#midias article:first-child h3{position: absolute; top: 40px;}
+#midias article:first-child h3
+{
+    position: absolute; 
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
 
 #midias article:last-child h3{display: none;}
 #midias article
 {
+    width: 80%;
     margin: 0;
     justify-content: space-around;
 }
 #midias div.site
 {
+    width: 100%;
     flex-direction: column;
     align-items: center;
+}
+#midias .iconMidias
+{
+    width: 40px;
+    height: 40px;
+}
+#midias #yt.iconMidias
+{
+    width: 47px;
+    height: 30px;
 }
 
 #galeria #bolinhasGaleria
@@ -1331,11 +1349,13 @@ main
     {
         display: none;
     }
-    #bolinhasApp
+    .bolinhas
     {
         width: 460px;
-        height: 330px;
-
+        height:394px;
+    }
+    #bolinhasApp
+    {
         top: 14%;
         left: 85%;  
     }
@@ -1401,11 +1421,18 @@ main
         left:0; 
         margin-bottom: 25px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
     .slick-dots li
     {
         width:40px;
         height: 40px;
     }
+
+    #bolinhasGaleria
+    {
+        left: -400px !important;
+    }
+
+    #parallaxGaleria{display:none}
 }
