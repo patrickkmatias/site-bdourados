@@ -1007,10 +1007,6 @@ main
 }
 
 /* SEC app */
-.bolinhas
-{
-    transform: scale(.7);
-}
 #app article
 {
     margin-left: 4%;
@@ -1141,10 +1137,6 @@ main
 {
     display: none;
 }
-.bolinhas
-{
-    transform: scale(.6);
-}
 #shadowModelo
 {
     display: none;
@@ -1161,7 +1153,6 @@ main
     position: relative;
     z-index: 2;
 
-    background-color: #0ca7a5;
     border-radius: 2%;
 }
 #aBarbearia p{font-size: 1.2em;}
@@ -1244,12 +1235,6 @@ main
     width: 47px;
     height: 30px;
 }
-
-#galeria #bolinhasGaleria
-{
-    transform: scale(-0.7, .7);
-}
-
 #galeria .video  
 {
     height: 100vh !important;
@@ -1384,6 +1369,8 @@ main
         height: 388px;
         width: 90%;
         margin: 0 auto;
+        background-color: #0ca7a5;
+        border: solid #0ca7a5 10px;
     }
     
     #aBarbearia a
@@ -1435,4 +1422,10 @@ main
     }
 
     #parallaxGaleria{display:none}
+
+    #galeria #gridFotos
+    {
+        padding: 0;
+        left: 0;
+    }
 }

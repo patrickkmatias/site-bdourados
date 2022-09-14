@@ -195,45 +195,12 @@ gsap.timeline({
 })
 
 
-gsap.set([".imagemGaleria",".sombraImgGaleria"], {opacity: 0});
-
-gsap.set(".sombraImgGaleria", {y: 100});
-
-ScrollTrigger.batch(".sombraImgGaleria", {
-  interval: 0.1, // time window (in seconds) for batching to occur. 
-  batchMax: 4,   // maximum batch size (targets). Can be function-based for dynamic values
-  onEnter: batch => gsap.to(batch, {opacity: 1, y: 0, x: -100, stagger: {each: 0.2}, overwrite: true}),
-  onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, x: -100, overwrite: true}),
-  // you can also define most normal ScrollTrigger values like start, end, etc.
-  trigger: '.imagemGaleria',
-  start: "top 70%",
-  end: "center bottom",
-  toggleClass: 'active',
-  markers: false,
-  once: true
-});
-
-gsap.set(".imagemGaleria", {y: -100});
-
-ScrollTrigger.batch(".imagemGaleria", {
-  interval: 0.1, // time window (in seconds) for batching to occur. 
-  batchMax: 4,   // maximum batch size (targets). Can be function-based for dynamic values
-  onEnter: batch => gsap.to(batch, {delay: 1.2, opacity: 1, y: 0, x: -100, stagger: {each: 0.2}, overwrite: true}),
-  onLeave: batch => gsap.set(batch, {opacity: 0, y: 100, x: -100, overwrite: true}),
-  // you can also define most normal ScrollTrigger values like start, end, etc.
-  start: "top 60%",
-  end: "bottom bottom",
-  toggleClass: 'active',
-  markers: false,
-  once: true
-});
 
 // when ScrollTrigger does a refresh(), it maps all the positioning data which 
 // factors in transforms, but in this example we're initially setting all the ".box"
 // elements to a "y" of 100 solely for the animation in which would throw off the normal 
 // positioning, so we use a "refreshInit" listener to reset the y temporarily. When we 
 // return a gsap.set() in the listener, it'll automatically revert it after the refresh()!
-ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".imagemGaleria", {y: 0}));
 // .from(".sombraImgGaleria", 
 // {
 //    y : innerHeight * 1,
@@ -331,6 +298,42 @@ ScrollTrigger.matchMedia({
       x: 50,
       duration: 4
     })
+
+    // animação grid fotos
+    gsap.set([".imagemGaleria",".sombraImgGaleria"], {opacity: 0});
+
+    gsap.set(".sombraImgGaleria", {y: 100});
+
+    ScrollTrigger.batch(".sombraImgGaleria", {
+      interval: 0.1, // time window (in seconds) for batching to occur. 
+      batchMax: 4,   // maximum batch size (targets). Can be function-based for dynamic values
+      onEnter: batch => gsap.to(batch, {opacity: 1, y: 0, x: -100, stagger: {each: 0.2}, overwrite: true}),
+      onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, x: -100, overwrite: true}),
+      // you can also define most normal ScrollTrigger values like start, end, etc.
+      trigger: '.imagemGaleria',
+      start: "top 70%",
+      end: "center bottom",
+      toggleClass: 'active',
+      markers: false,
+      once: true
+    });
+
+    gsap.set(".imagemGaleria", {y: -100});
+
+    ScrollTrigger.batch(".imagemGaleria", {
+      interval: 0.1, // time window (in seconds) for batching to occur. 
+      batchMax: 4,   // maximum batch size (targets). Can be function-based for dynamic values
+      onEnter: batch => gsap.to(batch, {delay: 1.2, opacity: 1, y: 0, x: -100, stagger: {each: 0.2}, overwrite: true}),
+      onLeave: batch => gsap.set(batch, {opacity: 0, y: 100, x: -100, overwrite: true}),
+      // you can also define most normal ScrollTrigger values like start, end, etc.
+      start: "top 60%",
+      end: "bottom bottom",
+      toggleClass: 'active',
+      markers: false,
+      once: true
+    });
+
+    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".imagemGaleria", {y: 0}));
   },
   "(max-width: 425px)": function() {
     
@@ -365,7 +368,39 @@ ScrollTrigger.matchMedia({
       duration: 4
     })
     
+    // animação grid fotos
+    gsap.set([".imagemGaleria",".sombraImgGaleria"], {opacity: 0});
 
+    gsap.set(".sombraImgGaleria", {y: 100, x:100});
+
+    ScrollTrigger.batch(".sombraImgGaleria", {
+      interval: 0.1, // time window (in seconds) for batching to occur. 
+      batchMax: 4,   // maximum batch size (targets). Can be function-based for dynamic values
+      onEnter: batch => gsap.to(batch, {opacity: 1, y: 0, x: 0, stagger: {each: 0.2}, overwrite: true}),
+      // you can also define most normal ScrollTrigger values like start, end, etc.
+      trigger: '.imagemGaleria',
+      start: "top 70%",
+      end: "center bottom",
+      toggleClass: 'active',
+      markers: false,
+      once: true
+    });
+
+    gsap.set(".imagemGaleria", {y: -100, x:-100});
+
+    ScrollTrigger.batch(".imagemGaleria", {
+      interval: 0.1, // time window (in seconds) for batching to occur. 
+      batchMax: 4,   // maximum batch size (targets). Can be function-based for dynamic values
+      onEnter: batch => gsap.to(batch, {delay: 0.3, opacity: 1, y: 0, x: 0, stagger: {each: 0.2}, overwrite: true}),
+      // you can also define most normal ScrollTrigger values like start, end, etc.
+      start: "top 60%",
+      end: "bottom bottom",
+      toggleClass: 'active',
+      markers: false,
+      once: true
+    });
+
+    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".imagemGaleria", {y: 0}));
   }
 });
 
