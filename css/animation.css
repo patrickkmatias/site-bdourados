@@ -172,6 +172,7 @@ body .clip b
   top: -50px;
 }
 body .clip iframe{
+  display:none;
 
   width: 810px;
   height: 405px;
@@ -196,7 +197,10 @@ body .clip.active
   transform: translate(-50%, -50%) scale(1);
   transition-delay: .5s;
 }
-
+body .yt.active
+{
+  display:block;
+}
 body .close
 { 
   position: absolute;

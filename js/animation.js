@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() { // On DOM Load initia
 // video play effect
 let btn = document.querySelector('.btn');
 let clip = document.querySelector('.clip');
+let iframe = document.querySelector('.yt');
 let galeria = document.querySelector('#galeria');
 let fechar = document.querySelector('.close');
 
@@ -85,12 +86,14 @@ btn.onclick = function(){
   btn.classList.add('active');
   clip.classList.add('active');
   galeria.classList.add('active');
+  iframe.classList.add('active');
 
 }
 fechar.onclick = function(){
   btn.classList.remove('active');
   clip.classList.remove('active');
   galeria.classList.remove('active');
+  iframe.classList.remove('active');
 
 }
 
