@@ -245,29 +245,29 @@ ScrollTrigger.matchMedia({
 
   },
 
-  "(max-width: 600px)": function() {
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#aBarbearia",
-        toggleClass: {targets:'#modeloBarbearia', className: 'active'},
-        start: 'top center',
-        end: 'center center',
-        scrub: false,
-        once: true,
-        markers: false
-      }
-    });
-    tl.from('#modeloBarbearia', {
-      duration: 1,
-      x: - innerWidth * 1,
-      ease: 'power3.easeIn' })
+  // "(max-width: 600px)": function() {
+  //   let tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: "#aBarbearia",
+  //       toggleClass: {targets:'#modeloBarbearia', className: 'active'},
+  //       start: 'top center',
+  //       end: 'center center',
+  //       scrub: false,
+  //       once: true,
+  //       markers: false
+  //     }
+  //   });
+  //   tl.from('#modeloBarbearia', {
+  //     duration: 1,
+  //     x: - innerWidth * 1,
+  //     ease: 'power3.easeIn' })
 
-      .from('#aBarbearia article>div', {
-        delay: 1.5,
-        duration: 2.5, 
-        ease: 'expo', 
-        y: innerHeight * 1 })
-  },
+  //     .from('#aBarbearia article>div', {
+  //       delay: 1.5,
+  //       duration: 2.5, 
+  //       ease: 'expo', 
+  //       y: innerHeight * 1 })
+  // },
   "(min-width: 426px)": function() {
     gsap.to('#bolinhasApp', {
       scrollTrigger: {
@@ -345,7 +345,7 @@ ScrollTrigger.matchMedia({
         toggleClass:  {targets:'#bolinhasApp', className: 'active'},
         scrub: 2,
         start: 'top center',
-        end: '80% center',
+        end: 'bottom top',
         markers: false,
       },
       x: -150,
