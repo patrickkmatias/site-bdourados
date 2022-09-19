@@ -223,7 +223,7 @@ gsap.timeline({
 
 ScrollTrigger.matchMedia({
 
-  "(min-width: 601px": function() {
+  "(min-width: 601px)": function() {
 
     gsap.to('#modeloBarbearia', {
       scrollTrigger: {
