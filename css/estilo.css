@@ -915,6 +915,8 @@ footer {
 
     justify-content: center;
     font-size: 16pt;
+
+    padding-inline: 2rem;
 }
 #rodape .informativo span{
 
@@ -932,7 +934,7 @@ footer {
 
 #rodape .informativo .social-media-links {
     filter: invert(1);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     display: flex;
     gap:1.5rem;
 
@@ -978,6 +980,7 @@ footer {
 }
 #rodape .local p {
 
+    padding-inline: 2rem;
     padding-bottom: 50px;
 
     font-size: 16pt;
@@ -989,14 +992,16 @@ footer {
 
 footer .espacoPreto{
 
-    height: 50px;
-
     display: flex;
     justify-content: center;
     align-items: center;
 
     color: white;
     background-color: #202020;
+
+    > p {
+        padding: 2rem;
+    }
 }
 
 /* RESPONSIVO */
@@ -1196,7 +1201,9 @@ main
 
     border-radius: 2%;
 }
-#aBarbearia p{font-size: 1.2em;}
+#aBarbearia p{font-size: 1rem;
+
+}
 #aBarbearia a
 {
     position: static;
@@ -1330,6 +1337,7 @@ main
 #rodape .mapa
 {
     width: 80% !important;
+    margin-block: 3rem;
 }
 
 }
@@ -1407,11 +1415,13 @@ main
 
     #aBarbearia div p
     {
-        height: 388px;
-        width: 90%;
+        height: 400px;
+        width: 100%;
         margin: 0 auto;
         background-color: #0ca7a5;
         border: solid #0ca7a5 10px;
+
+        overflow: scroll;
     }
     
     #aBarbearia a
@@ -1468,5 +1478,9 @@ main
     {
         padding: 0;
         left: 0;
+    }
+
+    #rodape .informativo a {
+        font-size: 12pt;
     }
 }
