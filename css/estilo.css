@@ -231,9 +231,14 @@ header{
 }
 .banner{
     position: absolute;
+    bottom: 0;
     z-index: 2;
-    height: 100%;
+    height: calc(100% - 60px);
     width: 100%;
+
+    > div {
+        height: 100%;
+    }
 }
 .banner .img-slide-track{
     transition: all 9.5s cubic-bezier(0.7, 0, 0.3, 1);
@@ -1031,7 +1036,7 @@ main
 .topo
 {
     height: 20%;
-    background: linear-gradient(180deg, black 20px, transparent);
+    background: linear-gradient(180deg, black 60px, transparent);
 }
 .banner
 {
