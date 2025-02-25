@@ -497,7 +497,7 @@ header{
 #aBarbearia p{
 
     width: 500px;
-    height: 358px;
+    height: 100%;
 
     margin: 0 0 17px 0;
     position: relative;
@@ -509,6 +509,7 @@ header{
     letter-spacing: 2.5px;
     text-align: justify;
     text-transform: none;
+    hyphens: auto;
 
     overflow: hidden;
 }
