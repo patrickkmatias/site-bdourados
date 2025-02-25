@@ -8,6 +8,10 @@
     --fonteTitle: 'Poppins', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 a{
     color: white;
 }
@@ -469,7 +473,7 @@ header{
 
     overflow: hidden;
 }
-#aBarbearia a{
+.app-button{
     
     width: 200px;
     height: 40px;
